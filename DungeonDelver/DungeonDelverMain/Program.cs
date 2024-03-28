@@ -28,7 +28,7 @@ public static class DungeonDelverMain{
         static void SetOccupation(PlayerClass user) {
             int userInput = Convert.ToInt32(Console.ReadLine());
             if (userInput == 1) {
-            user.SetOccupation("Warrior", 100, 50); 
+                user.SetOccupation("Warrior", 100, 50); 
             }
             if (userInput == 2) {
                 user.SetOccupation("Wizard", 100, 25);    
