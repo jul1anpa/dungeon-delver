@@ -25,7 +25,7 @@ public static class DungeonDelverMain{
 
         PlayerClass player = new PlayerClass();
 
-        static void StartSetup(PlayerClass user) {
+        static void SetOccupation(PlayerClass user) {
             int userInput = Convert.ToInt32(Console.ReadLine());
             if (userInput == 1) {
             user.SetOccupation("Warrior", 100, 50); 
@@ -35,11 +35,11 @@ public static class DungeonDelverMain{
             }
             else {
                 Console.WriteLine("That doesn't sound like a 1 or 2 to me. Try again.");
-                StartSetup(user);
+                SetOccupation(user);
             }
         }
 
-        StartSetup(player);
+        SetOccupation(player);
         
         Console.WriteLine($"A {player.title}? Good Choice!");
     }
