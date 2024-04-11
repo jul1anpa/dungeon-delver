@@ -7,7 +7,7 @@ namespace DungeonDelver
         static void Main(string[] args) 
         {
             Console.WriteLine("┳┓              ┳┓  ┓      \n┃┃┓┏┏┓┏┓┏┓┏┓┏┓  ┃┃┏┓┃┓┏┏┓┏┓\n┻┛┗┻┛┗┗┫┗ ┗┛┛┗  ┻┛┗ ┗┗┛┗ ┛\n");
-            Console.WriteLine("\n1. Start\n2. Exit\n");
+            Console.WriteLine("\n1. New Game\n2. Exit\n");
             string userInput = Console.ReadLine().Trim().ToLower();
             int startAction;
             if (int.TryParse(userInput, out startAction))

@@ -530,7 +530,7 @@ namespace DungeonDelver
 
                 player.TakeDamage(trapDamage);
 
-                Console.WriteLine("You unlatch the locking mechanism of the chest and lift the lid..\nthe golden light dissipates, you hear a faint clicking sound and then..\nWHOOOSH!!!\nthe light bursts forth in a frenzy, it leaves you burned..");
+                Console.WriteLine("\nYou unlatch the locking mechanism of the chest and lift the lid..\nthe golden light dissipates, you hear a faint clicking sound and then..\nWHOOOSH!!!\nThe light bursts forth in a frenzy, and leaves you burned..\n");
                 Console.WriteLine($"It was a trap! The chest damaged you for {trapDamage} damage!");
 
                 return isTrap;
