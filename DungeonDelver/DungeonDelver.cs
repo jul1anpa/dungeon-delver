@@ -31,7 +31,10 @@ namespace DungeonDelver
                 roomsCompleted++; 
             }
 
-            OutputBossRoom(); 
+            if (roomsCompleted == 7)
+            {
+                OutputBossRoom(); 
+            }
 
             if (playerAlive) 
             { 
