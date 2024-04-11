@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DungeonDelverMain</name>
+    </assembly>
+    <members>
+        <member name="T:DungeonDelver.GameManager">
+            <summary>
+            Represents the game state manager.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.GameManager.NewGame">
+            <summary>
+            Initializes a new game.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.GameManager.OutputIntroduction">
+            <summary>
+            Outputs text-based introduction, creates a new Player instance, and a starter Weapon instance.
+            </summary>
+            <returns>An instance of a player.</returns>
+        </member>
+        <member name="M:DungeonDelver.GameManager.OutputNewRoom(DungeonDelver.Player)">
+            <summary>
+            Outputs user interface for a new room, creates an instance of a DungeonRoom, and handles output logic for the combat user interface.
+            </summary>
+            <param name="player">Passes the Player instance to be handled in room generation.</param>
+        </member>
+        <member name="M:DungeonDelver.GameManager.OutputBossRoom">
+            <summary>
+            Outputs user interface for a boss room, creates an instance of a DungeonRoom, and calls combat log output.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.GameManager.OutputCombatLog(DungeonDelver.Enemy)">
+            <summary>
+            Outputs the user interface for combat, handles combat logic, and enemy actions. 
+            </summary>
+            <param name="enemy">Passes an Enemy instance to be processed in combat logic.</param>
+        </member>
+        <member name="M:DungeonDelver.GameManager.OutputEnding">
+            <summary>
+            Outputs the ending text.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.GameManager.OutputDeath">
+            <summary>
+            Outputs death text and handles new game logic.
+            </summary>
+        </member>
+        <member name="T:DungeonDelver.Player">
+            <summary>
+            Represents a player in the game.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.Player.#ctor(System.String)">
+            <summary>
+            Constructs a Player instance with a name parameter and initializes Health to 100.
+            </summary>
+            <param name="name">Set to the Name field.</param>
+        </member>
+        <member name="M:DungeonDelver.Player.Attack(DungeonDelver.Enemy)">
+            <summary>
+            Handles Attack command logic.
+            </summary>
+            <param name="enemy">Passes an Enemy instance to be processed.</param>
+            <returns>Boolean representing whether an attack successfully hit or not.</returns>
+        </member>
+        <member name="M:DungeonDelver.Player.TakeDamage(System.Int32)">
+            <summary>
+            Handles damage dealt to Player.
+            </summary>
+            <param name="damage">The amount of damage to be dealt.</param>
+        </member>
+        <member name="M:DungeonDelver.Player.PickupItem(DungeonDelver.Consumable)">
+            <summary>
+            Handles logic for adding Consumables to Player inventory.
+            </summary>
+            <param name="pickedupItem">The Consumable instance to be added.</param>
+        </member>
+        <member name="M:DungeonDelver.Player.EquipWeapon(DungeonDelver.Weapon)">
+            <summary>
+            Handles weapon equip logic.
+            </summary>
+            <param name="weapon">Weapon instance to be equipped.</param>
+        </member>
+        <member name="M:DungeonDelver.Player.OpenInventory">
+            <summary>
+            Handles inventory access logic.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.Player.UseConsumable(System.String)">
+            <summary>
+            Handles Use Consumable command logic.
+            </summary>
+            <param name="consumableName">User input that was passed to the Use Consumable command.</param>
+            <returns>Boolean representing whether a Consumable was used.</returns>
+        </member>
+        <member name="T:DungeonDelver.DungeonRoom">
+            <summary>
+            Represents a dungeon room in the game.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.DungeonRoom.CalculateRoomChance">
+            <summary>
+            Calculates whether a room will be of the ENEMY or LOOT type.
+            </summary>
+            <returns>String representation of room type.</returns>
+        </member>
+        <member name="M:DungeonDelver.DungeonRoom.GenerateRoom(DungeonDelver.Player)">
+            <summary>
+            Determines room type, populates room based on type, and outputs text for Enemy approach or Loot actions.
+            </summary>
+            <param name="player">Passes a Player instance to be processed in room generation.</param>
+        </member>
+        <member name="M:DungeonDelver.DungeonRoom.GenerateBossRoom">
+            <summary>
+            Populates room with boss Enemy and handles text output.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.DungeonRoom.CalculateTrap(DungeonDelver.Player)">
+            <summary>
+            Determines whether a chest is trapped or not.
+            </summary>
+            <param name="player">Passes a Player instance to handle damage logic.</param>
+            <returns>Boolean representing whether or not a chest is a trap.</returns>
+        </member>
+        <member name="T:DungeonDelver.Enemy">
+            <summary>
+            Represents an enemy in the game.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.Enemy.GenerateMinion">
+            <summary>
+            Initializes fields for Minion enemy type.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.Enemy.GenerateBoss">
+            <summary>
+            Initializes fields for Boss enemy type.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.Enemy.Attack(DungeonDelver.Player)">
+            <summary>
+            Handles Enemy Attack logic.
+            </summary>
+            <param name="player">Passes a Player instance to handle damage logic.</param>
+            <returns>boolean representing whether or not the attack was successful.</returns>
+        </member>
+        <member name="M:DungeonDelver.Enemy.TakeDamage(System.Int32)">
+            <summary>
+            Handles damage taken by Enemy.
+            </summary>
+            <param name="damage">The amount of damage to be dealt to Enemy instance.</param>
+        </member>
+        <member name="M:DungeonDelver.Enemy.DropLoot">
+            <summary>
+            Returns loot Consumable.
+            </summary>
+            <returns>Consumable instance.</returns>
+        </member>
+        <member name="T:DungeonDelver.Weapon">
+            <summary>
+            Represents a weapon in the game.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.Weapon.#ctor">
+            <summary>
+            Constructs a Weapon instance and initializes the WeaponName and Rarity.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.Weapon.CalculateRarity">
+            <summary>
+            Determines Rarity of a Weapon instance.
+            </summary>
+            <returns>String representation of rarity.</returns>
+        </member>
+        <member name="M:DungeonDelver.Weapon.CalculateDamage">
+            <summary>
+            Generates a random damage integer based on Weapon Rarity.
+            </summary>
+            <returns>Damage to be dealt by Weapon.</returns>
+        </member>
+        <member name="T:DungeonDelver.Consumable">
+            <summary>
+            Represents a consumable in the game, which inherits the item parent class.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.Consumable.#ctor">
+            <summary>
+            Constructs a Consumable instance and initializes ConsumableName, RestorePoints, and Quantity.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.Consumable.CalculateRestorationPoints">
+            <summary>
+            Generates random integer to represent RestorePoints of Consumable.
+            </summary>
+        </member>
+        <member name="M:DungeonDelver.Consumable.Consume(DungeonDelver.Player)">
+            <summary>
+            Handles consumption logic of a Consumable by the Player.
+            </summary>
+            <param name="player">Passes a Player instance to restore health points.</param>
+            <returns>Boolean representing whether or not the Consumable was consumed.</returns>
+        </member>
+    </members>
+</doc>
